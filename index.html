@@ -217,6 +217,11 @@ footer a:hover{color:var(--gold-lt);}
     flex-direction: column !important;
   }
 }
+.data-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 </style>
 </head>
 <body>
@@ -429,7 +434,7 @@ footer a:hover{color:var(--gold-lt);}
         <!-- Blurred dashboard gallery -->
         <div style="margin-top:14px;">
           <div style="font-size:.65rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;">Platform Dashboards — Hover to reveal data</div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;min-width:0;">
 
             <div class="data-shot" style="aspect-ratio:16/9;" onclick="openLB('images/ga4-01.jpg')">
               <img src="images/ga4-01.jpg" alt="GA4 Dashboard"/>
@@ -466,7 +471,7 @@ footer a:hover{color:var(--gold-lt);}
       </div>
 
       <div class="proj-result" style="margin-top:14px;">
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;">
+        <div style="display:flex;justify-content:space-around;gap:16px;width:100%;flex-wrap:wrap;">
           <div style="text-align:center;">
             <div class="proj-result-num" style="font-size:1.4rem;">18.03×</div>
             <div class="proj-result-txt">Meta Ads ROAS<br>₱20K budget</div>
