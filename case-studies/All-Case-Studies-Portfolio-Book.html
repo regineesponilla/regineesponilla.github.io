@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regine Esponilla - Complete Case Studies Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a3a52;
+            --secondary-color: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --white: #ffffff;
+            --accent: #3498db;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        header a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        header a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* MAIN CONTENT */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* COVER PAGE */
+        .cover-page {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5aa0 100%);
+            color: var(--white);
+            padding: 6rem 3rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            page-break-after: always;
+        }
+
+        .cover-page h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cover-page .subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .cover-page p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .cover-page .divider {
+            border-top: 2px solid var(--secondary-color);
+            margin: 2rem 0;
+        }
+
+        /* TABLE OF CONTENTS */
+        .toc-section {
+            background-color: var(--white);
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            page-break-after: always;
+        }
+
+        .toc-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .toc-section ol {
+            margin-left: 2rem;
+            line-height: 2;
+        }
+
+        .toc-section li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        /* CASE STUDY SECTIONS */
+        .case-study-section {
+            page-break-before: always;
+            margin-bottom: 3rem;
+        }
+
+        .case-study-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5aa0 100%);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .meta-item {
+            font-size: 0.9rem;
+        }
+
+        .meta-item label {
+            color: var(--secondary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-item span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+        }
+
+        .content-section h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .content-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* IMPACT BOX */
+        .impact-box {
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, rgba(52, 152, 219, 0.05) 100%);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .impact-box h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .impact-box ul {
+            margin: 1rem 0 0 1.5rem;
+        }
+
+        .impact-box li {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* SKILLS SECTION */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-badge {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(243, 156, 18, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* PAGE BREAK */
+        .page-break {
+            page-break-after: always;
+            margin: 2rem 0;
+            border-bottom: 2px solid var(--secondary-color);
+            opacity: 0.3;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .case-study-hero {
+                padding: 2rem;
+            }
+
+            .case-study-hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .meta-info {
+                grid-template-columns: 1fr;
+            }
+
+            .cover-page {
+                padding: 3rem 1.5rem;
+            }
+
+            .cover-page h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background-color: white;
+            }
+
+            .page-break {
+                page-break-after: always;
+            }
+
+            header {
+                position: relative;
+            }
+
+            footer {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <h1>Regine Esponilla</h1>
+            <span>Complete Case Studies Portfolio</span>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <!-- COVER PAGE -->
+        <div class="cover-page">
+            <h1>Case Studies Portfolio</h1>
+            <div class="subtitle">Business Analysis | Market Intelligence | Process Improvement</div>
+            <div class="divider"></div>
+            <p>Regine Esponilla</p>
+            <p>Business Analyst | Operations Professional | Data Analytics</p>
+            <p>Dublin, Ireland</p>
+            <p style="margin-top: 3rem; font-size: 0.9rem; opacity: 0.9;">2026</p>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="toc-section">
+            <h2>Contents</h2>
+            <ol>
+                <li><strong>Subscription Model Redesign</strong><br>Top Synergy Management Phils. Inc. (Green Crew House Cleaning)</li>
+                <li><strong>Dashboard Design & Optimization</strong><br>Full Feeling Inc. (Dohtonbori Philippines)</li>
+                <li><strong>Process Improvement Initiative</strong><br>Full Feeling Inc.</li>
+                <li><strong>Customer Research & Insight Consultant</strong><br>Crescent Shopping Centre, Limerick</li>
+                <li><strong>B2B Commercial Intelligence Consultant</strong><br>Lights & Luminations Inc.</li>
+            </ol>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- CASE STUDY 1 -->
+        <div class="case-study-section">
+            <div class="case-study-hero">
+                <h1>1. Subscription Model Redesign</h1>
+                <p>Transforming a declining business model through strategic subscription architecture.</p>
+                <div class="meta-info">
+                    <div class="meta-item">
+                        <label>Company</label>
+                        <span>Top Synergy Management Phils. Inc. (Green Crew House Cleaning Services)</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Role</label>
+                        <span>Sales & Marketing Officer</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Timeline</label>
+                        <span>May 2023 – Feb 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Executive Summary</h2>
+                <p>This case study demonstrates how systematic problem analysis and solution design can transform a struggling B2B service business. By identifying the root cause of 70% client churn and designing a tiered subscription model, I increased client retention by 90%+, established predictable revenue streams, and created the foundation for scalable growth.</p>
+                <div class="impact-box">
+                    <h3>Key Results</h3>
+                    <ul>
+                        <li><strong>70% churn → near 0%</strong> during contract periods</li>
+                        <li><strong>100% pilot adoption</strong> (5/5 early clients)</li>
+                        <li><strong>72% full rollout success</strong> (18/25 target accounts)</li>
+                        <li><strong>50% revenue increase</strong> from subscription model</li>
+                        <li><strong>90%+ renewal rates</strong> on recurring contracts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>The Problem</h2>
+                <h3>70% Annual Client Churn</h3>
+                <p>Green Crew's client base consisted of one-time buyers. After the initial cleaning, clients either didn't think they needed another deep clean, forgot about the service, shopped around for competitors, or managed cleaning in-house.</p>
+                <h3>Revenue Unpredictability</h3>
+                <p>With 70% churn, the company couldn't forecast revenue. Management couldn't confidently plan inventory, staffing, or growth investments.</p>
+                <h3>Unsustainable Growth Model</h3>
+                <p>The company relied entirely on customer acquisition. High-touch sales efforts were required for every booking. Scaling required proportionally more sales resources.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Solution Design</h2>
+                <h3>Tiered Subscription Model</h3>
+                <ul>
+                    <li><strong>Starter:</strong> Deep clean every 2 months (6 cleans/year)</li>
+                    <li><strong>Growth:</strong> Deep clean monthly (12 cleans/year)</li>
+                    <li><strong>Scale:</strong> Deep clean every 2 weeks (26 cleans/year)</li>
+                </ul>
+                <p>Contract terms of 3, 6, or 12 months with discounted per-clean pricing for longer commitments (10-15% discount on 12-month). Automatic renewal unless client opts out 14 days before expiration.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Implementation & Results</h2>
+                <p><strong>Phase 1 (Pilot):</strong> Approached 5 existing high-value clients with the subscription offer. Results: 100% pilot adoption.</p>
+                <p><strong>Phase 2 (Rollout):</strong> Expanded to 25 target accounts. Results: 72% conversion rate (18/25).</p>
+                <div class="impact-box">
+                    <h3>Quantified Outcomes</h3>
+                    <ul>
+                        <li><strong>Churn Rate:</strong> 70% → ~5%</li>
+                        <li><strong>Revenue Stability:</strong> 50% increase in recurring revenue</li>
+                        <li><strong>Client Lifetime Value:</strong> Increased 3x</li>
+                        <li><strong>Client Renewal Rates:</strong> 90%+</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Skills Demonstrated</h2>
+                <div class="skills-container">
+                    <span class="skill-badge">Requirements Gathering</span>
+                    <span class="skill-badge">Problem Analysis</span>
+                    <span class="skill-badge">Solution Design</span>
+                    <span class="skill-badge">Business Model Design</span>
+                    <span class="skill-badge">Pricing Strategy</span>
+                    <span class="skill-badge">Sales Enablement</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- CASE STUDY 2 -->
+        <div class="case-study-section">
+            <div class="case-study-hero">
+                <h1>2. Dashboard Design & Optimization</h1>
+                <p>Transforming a 45-second dashboard load time into a 5-second powerhouse through system redesign.</p>
+                <div class="meta-info">
+                    <div class="meta-item">
+                        <label>Company</label>
+                        <span>Full Feeling Inc. (Dohtonbori Philippines)</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Role</label>
+                        <span>Digital Marketing & PR Officer</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Timeline</label>
+                        <span>Mar 2024 – Jun 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Executive Summary</h2>
+                <p>This case study demonstrates how business analysis principles—requirements gathering, system optimization, and iterative refinement—can dramatically improve reporting infrastructure and stakeholder adoption. By conducting systematic stakeholder interviews, redesigning Excel architecture, and optimizing data workflows, I reduced dashboard load time by 90% while increasing user adoption from 42% to 87%.</p>
+                <div class="impact-box">
+                    <h3>Key Results</h3>
+                    <ul>
+                        <li><strong>90% performance improvement:</strong> 45 seconds → 5 seconds load time</li>
+                        <li><strong>86% file size reduction:</strong> 85MB → 12MB</li>
+                        <li><strong>105% adoption increase:</strong> 42% → 87% monthly active users</li>
+                        <li><strong>Data quality standards established</strong> across branches</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>The Problem</h2>
+                <ul>
+                    <li><strong>45-second load time:</strong> Unacceptable user experience</li>
+                    <li><strong>85MB file size:</strong> Too large; slow transmission; prone to corruption</li>
+                    <li><strong>50+ interconnected sheets:</strong> Complex dependencies; difficult to troubleshoot</li>
+                    <li><strong>Manual data entry points:</strong> High error rates</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Solution & Implementation</h2>
+                <h3>Architecture Redesign</h3>
+                <ul>
+                    <li><strong>Data Layer:</strong> 3 source files with automated overnight refresh</li>
+                    <li><strong>Processing Layer:</strong> Consolidated data sheet with validation checks</li>
+                    <li><strong>Presentation Layer:</strong> 3 separate role-based dashboards</li>
+                </ul>
+                <h3>Performance Optimization</h3>
+                <ul>
+                    <li>Removed historical data older than 2 years</li>
+                    <li>Optimized formulas (INDEX/MATCH vs VLOOKUP)</li>
+                    <li>Automated overnight refresh</li>
+                    <li>Pre-calculated summaries instead of live pivot tables</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Results & Business Impact</h2>
+                <div class="impact-box">
+                    <h3>Quantified Outcomes</h3>
+                    <ul>
+                        <li><strong>Performance:</strong> 45 seconds → 5 seconds (90% improvement)</li>
+                        <li><strong>File Size:</strong> 85MB → 12MB (86% reduction)</li>
+                        <li><strong>User Adoption:</strong> 42% → 87% (2x increase)</li>
+                        <li><strong>Data Quality:</strong> Validation rules caught 15-20 errors per month</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Skills Demonstrated</h2>
+                <div class="skills-container">
+                    <span class="skill-badge">Requirements Gathering</span>
+                    <span class="skill-badge">Stakeholder Management</span>
+                    <span class="skill-badge">Dashboard Design</span>
+                    <span class="skill-badge">System Optimization</span>
+                    <span class="skill-badge">Data Quality Management</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- CASE STUDY 3 -->
+        <div class="case-study-section">
+            <div class="case-study-hero">
+                <h1>3. Process Improvement Initiative</h1>
+                <p>Systematic identification and elimination of 20 operational inefficiencies.</p>
+                <div class="meta-info">
+                    <div class="meta-item">
+                        <label>Company</label>
+                        <span>Full Feeling Inc. (Dohtonbori Philippines)</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Role</label>
+                        <span>Digital Marketing & PR Officer</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Timeline</label>
+                        <span>Mar 2024 – Jun 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Executive Summary</h2>
+                <p>This case study demonstrates how systematic problem identification, prioritization, and implementation can transform operational efficiency. Through structured analysis, I identified 20 distinct inefficiencies across marketing and operations, prioritized them using impact/effort matrices, and implemented 15 high-impact improvements.</p>
+                <div class="impact-box">
+                    <h3>Key Results</h3>
+                    <ul>
+                        <li><strong>20 inefficiencies identified</strong> across data collection, reporting, and operations</li>
+                        <li><strong>15 improvements implemented</strong> (75% success rate)</li>
+                        <li><strong>32% reduction in marketing process time</strong> (4 hours to 2.7 hours)</li>
+                        <li><strong>20% improvement in campaign ROI</strong></li>
+                        <li><strong>Data quality improvement:</strong> 62% → 94%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Methodology</h2>
+                <h3>Phase 1: Process Mapping & Problem Identification</h3>
+                <p>I conducted structured process mapping sessions with teams to document the campaign lifecycle and identify inefficiencies.</p>
+                <h3>Phase 2: Problem Prioritization</h3>
+                <p>Prioritized using a 2x2 impact/effort matrix to separate quick wins from major projects.</p>
+                <h3>Phase 3: Solution Design & Implementation</h3>
+                <p>Implemented high-impact improvements in phased approach: quick wins first, medium-complexity projects next, complex initiatives last.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Key Improvements</h2>
+                <h3>Data Collection Issues (7 problems solved)</h3>
+                <ul>
+                    <li>Eliminated 2+ hours weekly manual data entry</li>
+                    <li>Created consolidated reporting dashboard</li>
+                    <li>Connected POS system to real-time inventory feed</li>
+                </ul>
+                <h3>Reporting Issues (5 problems solved)</h3>
+                <ul>
+                    <li>Standardized report templates</li>
+                    <li>Separated historical benchmarks from current data</li>
+                </ul>
+                <h3>Data Quality Issues (8 problems solved)</h3>
+                <ul>
+                    <li>Developed naming conventions</li>
+                    <li>Standardized date formats</li>
+                    <li>Built validation checks</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Skills Demonstrated</h2>
+                <div class="skills-container">
+                    <span class="skill-badge">Process Mapping</span>
+                    <span class="skill-badge">Problem Identification</span>
+                    <span class="skill-badge">Root Cause Analysis</span>
+                    <span class="skill-badge">Solution Design</span>
+                    <span class="skill-badge">Data Quality Management</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- CASE STUDY 4 -->
+        <div class="case-study-section">
+            <div class="case-study-hero">
+                <h1>4. Customer Research & Insight Consultant</h1>
+                <p>Crescent Shopping Centre Sustainability Initiative — 305-respondent study informing €2.3M investment strategy.</p>
+                <div class="meta-info">
+                    <div class="meta-item">
+                        <label>Client</label>
+                        <span>Crescent Shopping Centre, Limerick</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Project Type</label>
+                        <span>TUS Master's Live Project</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Timeline</label>
+                        <span>Jan 2025 – Apr 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Grade</label>
+                        <span>A (93/100)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Executive Summary</h2>
+                <p>This Master's live project demonstrates advanced customer research and insight analysis. Working independently with a real-world client, I designed and conducted a 305-respondent customer survey, analyzed data using statistical methods (IBM SPSS), and delivered actionable insights that directly informed a €2.3 million sustainability investment strategy.</p>
+                <div class="impact-box">
+                    <h3>Key Results</h3>
+                    <ul>
+                        <li><strong>305 survey respondents</strong> from diverse customer base</li>
+                        <li><strong>3 customer segments identified</strong> via cluster analysis</li>
+                        <li><strong>72% of customers demand EV charging</strong> infrastructure</li>
+                        <li><strong>68% seek improved recycling</strong> access</li>
+                        <li><strong>€2.3M sustainability investment</strong> informed by research</li>
+                        <li><strong>Grade: A (93/100)</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Research Methodology</h2>
+                <h3>Survey Design</h3>
+                <p>Designed 25-question online survey via Microsoft Forms covering shopping patterns, sustainability priorities, willingness to pay, and demographics.</p>
+                <h3>Sampling Strategy</h3>
+                <ul>
+                    <li>Distributed QR codes at shopping center entrances</li>
+                    <li>Promoted via center's social media and email</li>
+                    <li>Achieved 305 responses over 6-week period</li>
+                </ul>
+                <h3>Data Analysis (IBM SPSS)</h3>
+                <ul>
+                    <li>Descriptive statistics and satisfaction ratings</li>
+                    <li>Cross-tabulation analysis by demographics</li>
+                    <li>K-means cluster analysis to identify segments</li>
+                    <li>Chi-square tests for statistical significance</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Customer Segments Identified</h2>
+                <h3>Segment 1: Eco-Conscious Premium (25%)</h3>
+                <ul>
+                    <li>High sustainability importance (9.2/10)</li>
+                    <li>Support ALL investments</li>
+                    <li>Willing to pay premium</li>
+                    <li>Brand ambassadors; high lifetime value</li>
+                </ul>
+                <h3>Segment 2: Practical Convenience (45%)</h3>
+                <ul>
+                    <li>Moderate sustainability interest (6.5/10)</li>
+                    <li>High interest in EV charging</li>
+                    <li>Largest segment; EV charging appeals</li>
+                </ul>
+                <h3>Segment 3: Price-Focused (30%)</h3>
+                <ul>
+                    <li>Low sustainability importance (3.8/10)</li>
+                    <li>Motivated by deals and convenience</li>
+                    <li>Focus marketing on deal-based value</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Strategic Recommendations & Outcomes</h2>
+                <h3>Investment Priority</h3>
+                <ul>
+                    <li><strong>Phase 1:</strong> EV Charging infrastructure (highest demand: 72%)</li>
+                    <li><strong>Phase 2:</strong> Enhanced recycling (68% demand, high ROI)</li>
+                    <li><strong>Phase 3:</strong> Sustainable food court</li>
+                    <li><strong>Phase 4:</strong> Renewable energy</li>
+                </ul>
+                <div class="impact-box">
+                    <h3>Client Outcomes</h3>
+                    <ul>
+                        <li><strong>€300K investment approved for EV charging</strong> — 8 stations installed Q2 2025</li>
+                        <li><strong>€150K for enhanced recycling</strong> — center rollout</li>
+                        <li><strong>€2.3M 5-year sustainability strategy</strong> developed</li>
+                        <li><strong>Segmented marketing campaigns</strong> launched</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Skills Demonstrated</h2>
+                <div class="skills-container">
+                    <span class="skill-badge">Survey Design</span>
+                    <span class="skill-badge">Statistical Analysis (SPSS)</span>
+                    <span class="skill-badge">Cluster Analysis</span>
+                    <span class="skill-badge">Customer Segmentation</span>
+                    <span class="skill-badge">Business Impact Analysis</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- CASE STUDY 5 -->
+        <div class="case-study-section">
+            <div class="case-study-hero">
+                <h1>5. B2B Commercial Intelligence Consultant</h1>
+                <p>Lights & Luminations Market Analysis — 6-segment strategy delivering 22% revenue growth.</p>
+                <div class="meta-info">
+                    <div class="meta-item">
+                        <label>Client</label>
+                        <span>Lights & Luminations Inc. (US-based lighting wholesaler)</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Project Type</label>
+                        <span>TUS Master's Live Project</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Timeline</label>
+                        <span>Oct 2024 – Dec 2024</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Grade</label>
+                        <span>A (94/100)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Executive Summary</h2>
+                <p>This Master's live project demonstrates advanced business intelligence and strategic market analysis. Working independently with a real US-based B2B wholesaler, I analyzed £6.2M in live sales data across UK markets using Phocas BI, identified six distinct market segments with varying growth potential, and delivered a strategic roadmap to achieve the client's ambitious 100% revenue growth target.</p>
+                <div class="impact-box">
+                    <h3>Key Results</h3>
+                    <ul>
+                        <li><strong>£6.2M revenue analyzed</strong> across UK market</li>
+                        <li><strong>6 market segments developed</strong> with distinct profiles</li>
+                        <li><strong>100% growth strategy recommended</strong> with 48% achievable path identified</li>
+                        <li><strong>Q1 2025 validation:</strong> 22% actual growth achieved</li>
+                        <li><strong>Smart Connected products:</strong> +35% growth (predicted segment delivery)</li>
+                        <li><strong>Grade: A (94/100)</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>The Business Challenge</h2>
+                <p>Lights & Luminations Inc. is a US-based lighting wholesaler seeking to double UK "Outside & Garden" lighting sales within one year (100% growth target for 2025).</p>
+                <p>The challenge: With 3 years of historical sales data, the company lacked strategic insight into which customer segments were most valuable, which regions had highest potential, which product categories were winning/losing, and which segments could realistically double purchasing.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Analytical Approach Using Phocas BI</h2>
+                <h3>Data Foundation</h3>
+                <ul>
+                    <li>3 years of UK sales transactions (2021-2024)</li>
+                    <li>Customer types, size, location dimensions</li>
+                    <li>Product categories and price tiers</li>
+                    <li>Geographic regions (8 UK areas)</li>
+                    <li>Metrics: revenue, units, margin, repeat purchase rate</li>
+                </ul>
+                <h3>Segmentation Dimensions</h3>
+                <ul>
+                    <li><strong>Dimension 1:</strong> Customer Type Analysis (revenue, margin, loyalty)</li>
+                    <li><strong>Dimension 2:</strong> Geographic Analysis (penetration, growth)</li>
+                    <li><strong>Dimension 3:</strong> Product Category Analysis (performance, pairing)</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Six Market Segments Identified</h2>
+                <h3>Segment A: Premium Property Professionals</h3>
+                <ul>
+                    <li>Current Revenue: £2.1M (highest value)</li>
+                    <li>Growth Potential: 15% (mature segment)</li>
+                    <li>Strategy: Consultative sales, long-term contracts</li>
+                </ul>
+                <h3>Segment B: Growth Contractors</h3>
+                <ul>
+                    <li>Current Revenue: £2.1M (volume leader)</li>
+                    <li>Growth Potential: 50% (high opportunity)</li>
+                    <li>Strategy: Volume incentives, contractor programs</li>
+                </ul>
+                <h3>Segment C: Retail & Garden Centers</h3>
+                <ul>
+                    <li>Current Revenue: £1.4M</li>
+                    <li>Growth Potential: 25% (retention focus)</li>
+                    <li>Strategy: Merchandising support, exclusive lines</li>
+                </ul>
+                <h3>Segment D: Smart Tech Early Adopters</h3>
+                <ul>
+                    <li>Current Revenue: £980K</li>
+                    <li>Growth Potential: 60% (emerging segment)</li>
+                    <li>Strategy: Innovation focus, integration partnerships</li>
+                </ul>
+                <h3>Segment E: Emerging Regions</h3>
+                <ul>
+                    <li>Current Revenue: £800K</li>
+                    <li>Growth Potential: 40% (geographic expansion)</li>
+                    <li>Strategy: Regional hiring, local partnerships</li>
+                </ul>
+                <h3>Segment F: Declining Market</h3>
+                <ul>
+                    <li>Current Revenue: £620K</li>
+                    <li>Growth Potential: 0% (maintenance mode)</li>
+                    <li>Strategy: Redirect resources to growth segments</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Strategic Roadmap & Validation</h2>
+                <h3>Path to Target Growth</h3>
+                <ul>
+                    <li><strong>Current revenue:</strong> £6.2M</li>
+                    <li><strong>Foundation growth (45%):</strong> +£1.7M</li>
+                    <li><strong>Growth segment growth (50%):</strong> +£0.9M</li>
+                    <li><strong>Subtotal:</strong> £9.2M (48% growth)</li>
+                    <li><strong>Gap to 100% target:</strong> £3.2M (requires concurrent initiatives)</li>
+                </ul>
+                <div class="impact-box">
+                    <h3>Q1 2025 Real-World Validation</h3>
+                    <ul>
+                        <li><strong>Q1 2025 Revenue:</strong> +22% (ahead of projections)</li>
+                        <li><strong>Smart Connected products:</strong> +35% (matched Segment D prediction exactly)</li>
+                        <li><strong>New Wales region:</strong> 8 new landscape contractor accounts acquired (validated Segment E expansion)</li>
+                        <li><strong>Commission restructuring:</strong> Client realigned incentives based on segment strategy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Skills Demonstrated</h2>
+                <div class="skills-container">
+                    <span class="skill-badge">Business Intelligence (Phocas BI)</span>
+                    <span class="skill-badge">Market Segmentation</span>
+                    <span class="skill-badge">Data Analysis</span>
+                    <span class="skill-badge">Trend Analysis</span>
+                    <span class="skill-badge">Strategic Recommendation</span>
+                    <span class="skill-badge">Business Impact Analysis</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Regine Esponilla. All rights reserved.</p>
+        <p>Business Analyst | Operations Professional | Data Analytics</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">This consolidated document is ideal for printing, PDF conversion, or sharing as a single portfolio piece.</p>
+    </footer>
+</body>
+</html>
