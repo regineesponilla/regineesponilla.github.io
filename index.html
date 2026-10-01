@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regine Esponilla - Business Analyst Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a3a52;
+            --secondary-color: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --white: #ffffff;
+            --accent: #3498db;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* NAVIGATION */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        header nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5aa0 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .hero .title {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            background-color: var(--white);
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .about-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .about-section p {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* CASE STUDIES SECTION */
+        .case-studies-section {
+            padding: 4rem 2rem;
+        }
+
+        .case-studies-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .case-study-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .case-study-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5aa0 100%);
+            color: var(--white);
+            padding: 1.5rem;
+            min-height: 100px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .case-study-header h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .case-study-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-study-body .role {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-body .dates {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .case-study-body p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .case-study-impact {
+            background-color: var(--bg-light);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .case-study-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .skill-tag {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .read-case-study {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .read-case-study:hover {
+            color: #e67e22;
+            transform: translateX(5px);
+        }
+
+        /* MASTER'S PROJECTS SECTION */
+        .projects-section {
+            background-color: var(--white);
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .projects-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .project-item {
+            background-color: var(--bg-light);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 5px;
+        }
+
+        .project-item h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-item .meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .project-item p {
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .project-link:hover {
+            color: #e67e22;
+            transform: translateX(5px);
+        }
+
+        /* SKILLS SECTION */
+        .skills-section {
+            padding: 4rem 2rem;
+        }
+
+        .skills-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-category li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5aa0 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .contact-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .contact-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav {
+                margin-top: 1rem;
+            }
+
+            header nav a {
+                margin: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="container">
+            <h1>Regine Esponilla</h1>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#case-studies">Case Studies</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Business Analyst</h1>
+            <p class="title">Operations Professional | Data Analytics | Process Improvement</p>
+            <p>11+ years of experience translating business problems into data-driven solutions. Recent Master's graduate with applied consulting expertise.</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="container">
+        <div class="about-section">
+            <h2>About</h2>
+            <p>Business analyst with 11+ years in financial operations, B2B sales, and data analysis. Recently completed a First Class Honours Master of Business from Technological University of the Shannon, with applied consulting experience through real-world projects.</p>
+            <p>I specialize in translating complex business challenges into actionable solutions. My background spans requirements gathering, process improvement, stakeholder management, and data-driven decision-making across multiple industries and functions.</p>
+            <p>This portfolio showcases three major business analysis projects demonstrating my approach to problem-solving, stakeholder engagement, and delivering measurable business impact.</p>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES SECTION -->
+    <section id="case-studies" class="container">
+        <div class="case-studies-section">
+            <h2>Case Studies</h2>
+            <div class="case-studies-grid">
+                <!-- CASE STUDY 1 -->
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <h3>Subscription Model Redesign</h3>
+                    </div>
+                    <div class="case-study-body">
+                        <div class="role">Sales & Marketing Officer</div>
+                        <div class="dates">May 2023 – Feb 2024 | B2B Services Firm</div>
+                        <p>Identified and solved a critical business problem: 70% client churn in a project-based delivery model. Designed and implemented a tiered subscription model (3, 6, 12-month contracts) that transformed client relationships and revenue predictability.</p>
+                        <div class="case-study-impact">
+                            ✓ 70% churn → near 0% during contract period<br>
+                            ✓ 100% adoption across 25+ accounts<br>
+                            ✓ 90%+ client renewal rates
+                        </div>
+                        <div class="case-study-skills">
+                            <span class="skill-tag">Requirements Gathering</span>
+                            <span class="skill-tag">Problem Analysis</span>
+                            <span class="skill-tag">Stakeholder Management</span>
+                            <span class="skill-tag">Change Management</span>
+                        </div>
+                        <a href="case-studies/CASE_STUDY_1_Subscription_Model_Redesign.md" class="read-case-study">Read Full Case Study →</a>
+                    </div>
+                </div>
+
+                <!-- CASE STUDY 2 -->
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <h3>Dashboard Design & Optimization</h3>
+                    </div>
+                    <div class="case-study-body">
+                        <div class="role">Digital Marketing & PR Officer</div>
+                        <div class="dates">Mar 2024 – Jun 2024 | Marketing Operations</div>
+                        <p>Gathered requirements from 10+ cross-functional stakeholders across 6 branches. Designed executive dashboards and optimized system performance, reducing dashboard load time from 45 seconds to 5 seconds while establishing data quality standards.</p>
+                        <div class="case-study-impact">
+                            ✓ 90% improvement in load time (45s → 5s)<br>
+                            ✓ 10+ stakeholder coordination<br>
+                            ✓ Data quality standards implemented
+                        </div>
+                        <div class="case-study-skills">
+                            <span class="skill-tag">Requirements Gathering</span>
+                            <span class="skill-tag">Dashboard Design</span>
+                            <span class="skill-tag">System Optimization</span>
+                            <span class="skill-tag">Iterative Refinement</span>
+                        </div>
+                        <a href="case-studies/CASE_STUDY_2_Dashboard_Design_Optimization.md" class="read-case-study">Read Full Case Study →</a>
+                    </div>
+                </div>
+
+                <!-- CASE STUDY 3 -->
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <h3>Process Improvement Initiative</h3>
+                    </div>
+                    <div class="case-study-body">
+                        <div class="role">Digital Marketing & PR Officer</div>
+                        <div class="dates">Mar 2024 – Jun 2024 | Operations Analysis</div>
+                        <p>Conducted systematic analysis identifying 20 process inefficiencies across marketing and operations. Prioritized and implemented 15 high-impact improvements, including spend reallocation, workflow optimization, and automation, improving campaign ROI.</p>
+                        <div class="case-study-impact">
+                            ✓ 20 inefficiencies identified<br>
+                            ✓ 15 improvements implemented<br>
+                            ✓ Improved campaign ROI
+                        </div>
+                        <div class="case-study-skills">
+                            <span class="skill-tag">Problem Identification</span>
+                            <span class="skill-tag">Prioritization</span>
+                            <span class="skill-tag">Process Mapping</span>
+                            <span class="skill-tag">Cross-Functional Coordination</span>
+                        </div>
+                        <a href="case-studies/CASE_STUDY_3_Process_Improvement_Initiative.md" class="read-case-study">Read Full Case Study →</a>
+                    </div>
+                </div>
+
+                <!-- CASE STUDY 4 -->
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <h3>Customer Research & Insight</h3>
+                    </div>
+                    <div class="case-study-body">
+                        <div class="role">Research & Insight Consultant</div>
+                        <div class="dates">Jan 2025 – Apr 2025 | TUS Master's Live Project</div>
+                        <p>Designed and deployed customer research study for Crescent Shopping Centre, Limerick. Surveyed 305 shoppers using Microsoft Forms, analyzed data with IBM SPSS and Excel, and identified three customer segments with actionable insights for sustainability strategy.</p>
+                        <div class="case-study-impact">
+                            ✓ 305 respondents surveyed<br>
+                            ✓ 3 customer segments identified<br>
+                            ✓ €2.3M investment strategy informed | Grade: A (93/100)
+                        </div>
+                        <div class="case-study-skills">
+                            <span class="skill-tag">Survey Design</span>
+                            <span class="skill-tag">Data Analysis (SPSS)</span>
+                            <span class="skill-tag">Segmentation</span>
+                            <span class="skill-tag">Business Impact</span>
+                        </div>
+                        <a href="case-studies/CASE_STUDY_4_Crescent_Shopping_Centre_Research.md" class="read-case-study">Read Full Case Study →</a>
+                    </div>
+                </div>
+
+                <!-- CASE STUDY 5 -->
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <h3>B2B Commercial Intelligence</h3>
+                    </div>
+                    <div class="case-study-body">
+                        <div class="role">BI Analyst & Market Intelligence Consultant</div>
+                        <div class="dates">Oct 2024 – Dec 2024 | TUS Master's Live Project</div>
+                        <p>Analyzed live B2B sales data for Lights & Luminations Inc. using Phocas BI. Developed 6-segment market strategy to achieve 100% UK revenue growth. Delivered strategic recommendations that led to 22% Q1 2025 growth with Smart Connected products up 35%.</p>
+                        <div class="case-study-impact">
+                            ✓ £6.2M revenue analyzed across 6 segments<br>
+                            ✓ 100% growth strategy developed<br>
+                            ✓ Achieved 22% actual Q1 growth | Grade: A (94/100)
+                        </div>
+                        <div class="case-study-skills">
+                            <span class="skill-tag">Business Intelligence (Phocas)</span>
+                            <span class="skill-tag">Market Segmentation</span>
+                            <span class="skill-tag">Data Strategy</span>
+                            <span class="skill-tag">Executive Communication</span>
+                        </div>
+                        <a href="case-studies/CASE_STUDY_5_Lights_Luminations_Market_Analysis.md" class="read-case-study">Read Full Case Study →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MASTER'S PROJECTS SECTION -->
+    <section id="projects" class="container">
+        <div class="projects-section">
+            <h2>Master's Consulting Projects</h2>
+            
+            <div class="project-item">
+                <h3>Customer Research & Insight Consultant</h3>
+                <div class="meta">Crescent Shopping Centre · TUS Master's Live Project | Jan – Apr 2025</div>
+                <p><strong>Challenge:</strong> Crescent Shopping Centre needed to understand customer needs to guide investment in sustainability initiatives.</p>
+                <p><strong>Approach:</strong> Designed and deployed a 305-response customer survey using Microsoft Forms. Independently conducted data analysis using IBM SPSS and Excel to identify three distinct customer segments and actionable insights.</p>
+                <p><strong>Results:</strong> Identified that 72% of shoppers demand EV charging infrastructure, 68% seek improved recycling access, and 35% cite sustainability as a purchasing factor. Insights were adopted for internal resource planning and business strategy alignment.</p>
+                <a href="case-studies/CASE_STUDY_4_Crescent_Shopping_Centre_Research.md" class="project-link">Read Full Project Analysis →</a>
+            </div>
+
+            <div class="project-item">
+                <h3>B2B Commercial Intelligence Consultant</h3>
+                <div class="meta">Lights & Luminations Inc. · TUS Master's Live Project | Oct – Dec 2024</div>
+                <p><strong>Challenge:</strong> Analyze live B2B sales data to identify revenue concentration risks and opportunities for market expansion.</p>
+                <p><strong>Approach:</strong> Independently extracted and analyzed live sales data from Phocas Business Intelligence across the UK healthcare sector. Built commercial dashboards in Excel and Phocas to translate raw data into strategic insights.</p>
+                <p><strong>Results:</strong> Identified critical revenue concentration gap where top 10 customers represented 67% of total sales. Developed multi-channel campaign framework with performance tracking methodology via Google Analytics demonstrating clear commercial opportunity for revenue growth.</p>
+                <a href="case-studies/CASE_STUDY_5_Lights_Luminations_Market_Analysis.md" class="project-link">Read Full Project Analysis →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="container">
+        <div class="skills-section">
+            <h2>Skills & Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Business Analysis</h3>
+                    <ul>
+                        <li>Requirements Gathering</li>
+                        <li>Process Mapping & Analysis</li>
+                        <li>Stakeholder Management</li>
+                        <li>Solution Design</li>
+                        <li>Business Impact Analysis</li>
+                        <li>Change Management</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Data & Analytics</h3>
+                    <ul>
+                        <li>Excel (Pivot Tables, Data Analysis)</li>
+                        <li>Phocas Business Intelligence</li>
+                        <li>IBM SPSS</li>
+                        <li>Google Analytics</li>
+                        <li>Dashboard Design</li>
+                        <li>Data Quality Management</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Operations & Systems</h3>
+                    <ul>
+                        <li>System Implementation (SAP, TCS BaNCS)</li>
+                        <li>User Acceptance Testing (UAT)</li>
+                        <li>Workflow Optimization</li>
+                        <li>Compliance & Regulatory Management</li>
+                        <li>Issue Resolution</li>
+                        <li>Team Leadership & Training</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Technical Tools</h3>
+                    <ul>
+                        <li>Microsoft Excel & PowerPoint</li>
+                        <li>Google Analytics & Forms</li>
+                        <li>CRM Systems (Notion)</li>
+                        <li>SAP & TCS BaNCS</li>
+                        <li>Power BI (developing)</li>
+                        <li>SQL (developing)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Stakeholder Communication</li>
+                        <li>Problem-Solving</li>
+                        <li>Presentation Skills</li>
+                        <li>Attention to Detail</li>
+                        <li>Cross-Functional Collaboration</li>
+                        <li>Attention to Detail</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Certifications</h3>
+                    <ul>
+                        <li>Master of Business (First Class Honours) — TUS 2025</li>
+                        <li>Agile Project Management Foundations</li>
+                        <li>Business Benefits Realisation Foundations</li>
+                        <li>Google Analytics Certification</li>
+                        <li>GDPR Awareness Certification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="container">
+        <div class="contact-section">
+            <h2>Let's Connect</h2>
+            <p>I'm open to conversations about business analysis, process improvement, and data-driven problem-solving opportunities.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <label>📞 Phone</label>
+                    <a href="tel:+353870374170">+353 870 374 170</a>
+                </div>
+                <div class="contact-item">
+                    <label>📧 Email</label>
+                    <a href="mailto:missregine.esponilla@gmail.com">missregine.esponilla@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <label>💼 LinkedIn</label>
+                    <a href="https://linkedin.com/in/regine-esponilla" target="_blank">linkedin.com/in/regine-esponilla</a>
+                </div>
+            </div>
+
+            <div class="contact-social">
+                <a href="https://linkedin.com/in/regine-esponilla" target="_blank" class="social-link" title="LinkedIn">in</a>
+                <a href="mailto:missregine.esponilla@gmail.com" class="social-link" title="Email">✉</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Regine Esponilla. All rights reserved.</p>
+        <p>Based in Co. Clare, Ireland | Open to nationwide roles</p>
+    </footer>
+</body>
+</html>
