@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Model Redesign - Case Study | Regine Esponilla</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a3a52;
+            --secondary-color: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --white: #ffffff;
+            --accent: #3498db;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        header a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        header a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* MAIN CONTENT */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #e67e22;
+        }
+
+        /* HERO SECTION */
+        .case-study-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5aa0 100%);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .meta-item {
+            font-size: 0.9rem;
+        }
+
+        .meta-item label {
+            color: var(--secondary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-item span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+        }
+
+        .content-section h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .content-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* IMPACT BOX */
+        .impact-box {
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, rgba(52, 152, 219, 0.05) 100%);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .impact-box h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .impact-box ul {
+            margin: 1rem 0 0 1.5rem;
+        }
+
+        .impact-box li {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* SKILLS SECTION */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-badge {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(243, 156, 18, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .case-study-hero {
+                padding: 2rem;
+            }
+
+            .case-study-hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .meta-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <h1>Regine Esponilla</h1>
+            <a href="index.html">← Back to Portfolio</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Portfolio</a> / Case Study #1
+        </div>
+
+        <!-- HERO SECTION -->
+        <div class="case-study-hero">
+            <h1>Subscription Model Redesign</h1>
+            <p>Transforming a declining business model through strategic subscription architecture.</p>
+            <div class="meta-info">
+                <div class="meta-item">
+                    <label>Company</label>
+                    <span>Top Synergy Management Phils. Inc. (Green Crew House Cleaning Services)</span>
+                </div>
+                <div class="meta-item">
+                    <label>Role</label>
+                    <span>Sales & Marketing Officer</span>
+                </div>
+                <div class="meta-item">
+                    <label>Timeline</label>
+                    <span>May 2023 – Feb 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXECUTIVE SUMMARY -->
+        <div class="content-section">
+            <h2>Executive Summary</h2>
+            <p>This case study demonstrates how systematic problem analysis and solution design can transform a struggling B2B service business. By identifying the root cause of 70% client churn and designing a tiered subscription model, I increased client retention by 90%+, established predictable revenue streams, and created the foundation for scalable growth.</p>
+            <div class="impact-box">
+                <h3>Key Results</h3>
+                <ul>
+                    <li><strong>70% churn → near 0%</strong> during contract periods</li>
+                    <li><strong>100% pilot adoption</strong> (5/5 early clients)</li>
+                    <li><strong>72% full rollout success</strong> (18/25 target accounts)</li>
+                    <li><strong>50% revenue increase</strong> from subscription model</li>
+                    <li><strong>90%+ renewal rates</strong> on recurring contracts</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CONTEXT -->
+        <div class="content-section">
+            <h2>Context</h2>
+            <p>Green Crew House Cleaning Services is a recurring deep-cleaning company operating in the Philippines, serving residential and commercial clients. The company generates revenue through one-off cleaning jobs ("project-based delivery"), but faced a critical problem: once a client completed their initial cleaning, 70% never returned for follow-up services.</p>
+
+            <h3>The Business Challenge</h3>
+            <p>Without recurring revenue, the company was stuck in a "feast or famine" cycle. Each month required aggressive customer acquisition to replace clients who churned. This was expensive, time-consuming, and prevented the business from scaling.</p>
+
+            <p>The root cause: clients viewed Green Crew's service as transactional ("I need my house cleaned once"), not recurring ("I want regular deep cleans on a schedule"). There was no mechanism to encourage repeat bookings, no commitment structure, and no incentive for clients to return.</p>
+        </div>
+
+        <!-- PROBLEM ANALYSIS -->
+        <div class="content-section">
+            <h2>The Problem</h2>
+            
+            <h3>70% Annual Client Churn</h3>
+            <p>Green Crew's client base consisted of one-time buyers. After the initial cleaning, clients either:</p>
+            <ul>
+                <li>Didn't think they needed another deep clean (underestimated frequency of need)</li>
+                <li>Forgot about the service (no reminder system in place)</li>
+                <li>Shopped around for cheaper competitors (no lock-in, no loyalty incentive)</li>
+                <li>Managed cleaning in-house (perceived it as non-essential ongoing expense)</li>
+            </ul>
+
+            <h3>Revenue Unpredictability</h3>
+            <p>With 70% churn, the company couldn't forecast revenue. Management couldn't confidently plan inventory, staffing, or growth investments. Every month was uncertain.</p>
+
+            <h3>Unsustainable Growth Model</h3>
+            <p>The company relied entirely on customer acquisition. High-touch sales efforts were required for every booking. Marketing spend was high relative to customer lifetime value. Scaling required proportionally more sales resources.</p>
+        </div>
+
+        <!-- SOLUTION DESIGN -->
+        <div class="content-section">
+            <h2>Solution Design</h2>
+            
+            <h3>Tiered Subscription Model</h3>
+            <p>I designed a subscription model that addressed the root causes of churn by making recurring service the default, rather than the exception:</p>
+
+            <h3>Subscription Tiers</h3>
+            <ul>
+                <li><strong>Starter:</strong> Deep clean every 2 months (6 cleans/year) - for light-use residential</li>
+                <li><strong>Growth:</strong> Deep clean monthly (12 cleans/year) - for regular household/small office use</li>
+                <li><strong>Scale:</strong> Deep clean every 2 weeks (26 cleans/year) - for high-traffic commercial/large homes</li>
+            </ul>
+
+            <h3>Contract Terms</h3>
+            <ul>
+                <li>3-month, 6-month, or 12-month commitment periods</li>
+                <li>Discounted per-clean pricing for longer commitments (10-15% discount on 12-month)</li>
+                <li>Automatic renewal unless client opts out 14 days before expiration</li>
+            </ul>
+
+            <h3>Why This Works</h3>
+            <ul>
+                <li><strong>Predictability for clients:</strong> They know when their home will be cleaned. No need to book each time.</li>
+                <li><strong>Commitment benefit:</strong> Clients get better pricing for locking in longer terms. Psychology: "I'm getting a deal."</li>
+                <li><strong>Reduced decision fatigue:</strong> Recurring contracts mean fewer booking decisions. Clients simply get their service.</li>
+                <li><strong>Loyalty incentive:</strong> Discounts + consistency = reduced churn temptation to switch providers.</li>
+                <li><strong>Predictable revenue:</strong> Green Crew can now forecast and plan with confidence.</li>
+            </ul>
+        </div>
+
+        <!-- IMPLEMENTATION -->
+        <div class="content-section">
+            <h2>Implementation</h2>
+            
+            <h3>Phase 1: Pilot (Month 1-2)</h3>
+            <ul>
+                <li>Approached 5 existing high-value clients with the subscription offer</li>
+                <li>Positioned as exclusive beta program with special founding-member pricing</li>
+                <li>Results: 100% pilot adoption (5/5 clients signed subscription contracts)</li>
+            </ul>
+
+            <h3>Phase 2: Rollout (Month 2-6)</h3>
+            <ul>
+                <li>Expanded to 25 target accounts (mix of existing and new clients)</li>
+                <li>Used pilot success stories in sales conversations</li>
+                <li>Trained sales team on subscription pitch (value-first, not transactional)</li>
+                <li>Results: 72% conversion rate (18/25 accounts signed subscriptions)</li>
+            </ul>
+
+            <h3>Phase 3: Stabilization (Month 6-12)</h3>
+            <ul>
+                <li>Monitored contract renewals and churn rates</li>
+                <li>Adjusted pricing/tiers based on client feedback</li>
+                <li>Developed referral incentives for existing subscription clients</li>
+            </ul>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="content-section">
+            <h2>Results & Business Impact</h2>
+            
+            <div class="impact-box">
+                <h3>Quantified Outcomes</h3>
+                <ul>
+                    <li><strong>Churn Rate:</strong> 70% → ~5% (near-zero during contract periods)</li>
+                    <li><strong>Revenue Stability:</strong> 50% increase in recurring revenue month-over-month</li>
+                    <li><strong>Client Lifetime Value:</strong> Increased 3x through extended contract terms and reduced acquisition costs</li>
+                    <li><strong>Client Renewal Rates:</strong> 90%+ of subscription contracts renewed on expiry</li>
+                    <li><strong>Pilot-to-Rollout Success:</strong> 100% adoption in pilot; 72% in full rollout</li>
+                </ul>
+            </div>
+
+            <h3>Strategic Impact</h3>
+            <p><strong>Predictable Revenue:</strong> The company shifted from transactional to subscription-based revenue. This allowed management to confidently forecast quarterly revenue and plan growth investments.</p>
+
+            <p><strong>Improved Unit Economics:</strong> Subscription clients have higher lifetime value. The cost of acquiring a subscription client is amortized over 12+ months rather than recovered in a single transaction.</p>
+
+            <p><strong>Scalable Growth Model:</strong> The company can now grow by improving retention and expanding contract value, rather than purely increasing customer acquisition.</p>
+
+            <p><strong>Reduced Dependency on Sales:</strong> Once a client is on a subscription, they continue automatically (low friction). Sales effort shifts from "book each job" to "acquire new subscription clients."</p>
+        </div>
+
+        <!-- SKILLS DEMONSTRATED -->
+        <div class="content-section">
+            <h2>Business Analysis Skills Demonstrated</h2>
+            <div class="skills-container">
+                <span class="skill-badge">Requirements Gathering</span>
+                <span class="skill-badge">Problem Analysis</span>
+                <span class="skill-badge">Stakeholder Management</span>
+                <span class="skill-badge">Solution Design</span>
+                <span class="skill-badge">Business Model Design</span>
+                <span class="skill-badge">Change Management</span>
+                <span class="skill-badge">Pricing Strategy</span>
+                <span class="skill-badge">Sales Enablement</span>
+            </div>
+        </div>
+
+        <!-- LEARNINGS -->
+        <div class="content-section">
+            <h2>Key Learnings</h2>
+            
+            <h3>1. Root Cause Analysis is Essential</h3>
+            <p>I didn't stop at "clients churn." I dug deeper to understand WHY—whether it was price sensitivity, forgotten service, or misaligned expectations. The solution only works because it addresses the actual root cause.</p>
+
+            <h3>2. Pilot-Test Before Full Rollout</h3>
+            <p>The 5-client pilot was essential. It proved the concept worked, provided success stories, and helped refine the pitch before broader rollout. A 100% pilot adoption rate gave confidence to move forward.</p>
+
+            <h3>3. Align Incentives</h3>
+            <p>The subscription model works because it aligns incentives: clients want predictable cleaning schedules and discounted pricing; the company wants predictable revenue and reduced churn. Win-win design matters.</p>
+
+            <h3>4. Communication Matters</h3>
+            <p>Selling "subscription model" feels abstract. But selling "regular deep cleans on a schedule at a discounted rate" feels tangible. Framing the solution in client-benefit language, not company-benefit language, drives adoption.</p>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="content-section">
+            <h2>Conclusion</h2>
+            <p>This case study demonstrates the power of systematic business analysis: identify the real problem, design a solution that addresses root causes, pilot-test to build confidence, and scale with supporting change management.</p>
+
+            <p>The subscription model was not a silver bullet, but it was a strategic shift that transformed a transactional business into a recurring-revenue business. That shift unlocked predictable growth, improved unit economics, and created a foundation for scale.</p>
+
+            <p><strong>Business Analyst Takeaway:</strong> Great solutions come from understanding not just what clients need, but why they need it. Once you know the real problem, the solution often follows logically.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Regine Esponilla. All rights reserved.</p>
+        <p>Business Analyst | Operations Professional | Data Analytics</p>
+    </footer>
+</body>
+</html>
