@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Design & Optimization - Case Study | Regine Esponilla</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a3a52;
+            --secondary-color: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --white: #ffffff;
+            --accent: #3498db;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        header a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        header a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* MAIN CONTENT */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #e67e22;
+        }
+
+        /* HERO SECTION */
+        .case-study-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5aa0 100%);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .meta-item {
+            font-size: 0.9rem;
+        }
+
+        .meta-item label {
+            color: var(--secondary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-item span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+        }
+
+        .content-section h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .content-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* IMPACT BOX */
+        .impact-box {
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, rgba(52, 152, 219, 0.05) 100%);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .impact-box h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .impact-box ul {
+            margin: 1rem 0 0 1.5rem;
+        }
+
+        .impact-box li {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* SKILLS SECTION */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-badge {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(243, 156, 18, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .case-study-hero {
+                padding: 2rem;
+            }
+
+            .case-study-hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .meta-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <h1>Regine Esponilla</h1>
+            <a href="index.html">← Back to Portfolio</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Portfolio</a> / Case Study #2
+        </div>
+
+        <!-- HERO SECTION -->
+        <div class="case-study-hero">
+            <h1>Dashboard Design & Optimization</h1>
+            <p>Transforming a 45-second dashboard load time into a 5-second powerhouse through system redesign and stakeholder collaboration.</p>
+            <div class="meta-info">
+                <div class="meta-item">
+                    <label>Company</label>
+                    <span>Full Feeling Inc. (Dohtonbori Philippines)</span>
+                </div>
+                <div class="meta-item">
+                    <label>Role</label>
+                    <span>Digital Marketing & PR Officer</span>
+                </div>
+                <div class="meta-item">
+                    <label>Timeline</label>
+                    <span>Mar 2024 – Jun 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXECUTIVE SUMMARY -->
+        <div class="content-section">
+            <h2>Executive Summary</h2>
+            <p>This case study demonstrates how business analysis principles—requirements gathering, system optimization, and iterative refinement—can dramatically improve reporting infrastructure and stakeholder adoption. By conducting systematic stakeholder interviews, redesigning Excel architecture, and optimizing data workflows, I reduced dashboard load time by 90% while increasing user adoption from 42% to 87%.</p>
+            <div class="impact-box">
+                <h3>Key Results</h3>
+                <ul>
+                    <li><strong>90% performance improvement:</strong> 45 seconds → 5 seconds load time</li>
+                    <li><strong>86% file size reduction:</strong> 85MB → 12MB</li>
+                    <li><strong>10+ stakeholders managed</strong> across 6 branches</li>
+                    <li><strong>105% adoption increase:</strong> 42% → 87% monthly active users</li>
+                    <li><strong>Data quality standards established</strong> across branches</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CONTEXT -->
+        <div class="content-section">
+            <h2>Context</h2>
+            <p>Full Feeling Inc. is a multi-branch hospitality and food retail business operating across 6 locations in the Philippines. The company had invested in building a comprehensive Excel-based dashboard to track sales, inventory, customer engagement, and financial metrics across all branches.</p>
+
+            <p>However, the dashboard had become unwieldy: 85MB file size, 50+ sheets, and a crippling 45-second load time. Users were frustrated. Adoption was low (42% monthly active users). Branch managers often reverted to manual reporting because waiting for the dashboard to load was slower than pulling the data manually.</p>
+
+            <p>The business wanted a fast, reliable reporting system that all 10+ stakeholders (branch managers, finance, marketing, operations) would actually use.</p>
+        </div>
+
+        <!-- PROBLEM ANALYSIS -->
+        <div class="content-section">
+            <h2>The Problem</h2>
+            
+            <h3>Dashboard Performance Crisis</h3>
+            <ul>
+                <li><strong>45-second load time:</strong> Unacceptable user experience. Users abandoned the dashboard.</li>
+                <li><strong>85MB file size:</strong> Too large; slow network transmission; prone to corruption.</li>
+                <li><strong>50+ interconnected sheets:</strong> Complex dependencies; changes in one sheet cascaded across many; difficult to troubleshoot.</li>
+                <li><strong>Manual data entry points:</strong> Multiple users manually entering data into different sheets; high error rates.</li>
+            </ul>
+
+            <h3>Low Adoption (42%)</h3>
+            <p>Users didn't regularly use the dashboard because it was slow. They'd wait 45 seconds to get data that was often outdated or incorrect anyway. Manual reporting seemed faster.</p>
+
+            <h3>Data Quality Issues</h3>
+            <p>Different branches entered data differently. No standardized data entry process. Quality checks were sporadic. The more data flowing in, the more errors propagated.</p>
+        </div>
+
+        <!-- REQUIREMENTS GATHERING -->
+        <div class="content-section">
+            <h2>Requirements Gathering</h2>
+            
+            <h3>Stakeholder Interviews</h3>
+            <p>I conducted interviews with 10+ stakeholders across 6 branches to understand:</p>
+            <ul>
+                <li>What data each person actually needs (vs. what they thought they needed)</li>
+                <li>How frequently they access the dashboard</li>
+                <li>What pain points prevented adoption</li>
+                <li>What data quality issues they'd observed</li>
+            </ul>
+
+            <h3>Key Findings</h3>
+            <ul>
+                <li><strong>Role-based needs:</strong> Branch managers needed sales + inventory data. Finance needed payment reconciliation. Marketing needed campaign performance. Different roles needed different views.</li>
+                <li><strong>Frequency varied:</strong> Finance checked daily; branch managers weekly; marketing monthly. The current design tried to serve all users equally, but that was inefficient.</li>
+                <li><strong>Pain point #1 - Speed:</strong> 45-second load time was unacceptable. Users wanted sub-5-second response times.</li>
+                <li><strong>Pain point #2 - Accuracy:</strong> Users didn't trust the data. They'd verify it manually before making decisions.</li>
+                <li><strong>Pain point #3 - Complexity:</strong> Too many sheets. Users didn't know which sheet to look at for specific questions.</li>
+            </ul>
+
+            <h3>Requirements Synthesis</h3>
+            <p>Based on stakeholder feedback, the redesigned dashboard needed to:</p>
+            <ul>
+                <li>Load in under 5 seconds (10x performance improvement)</li>
+                <li>Separate views by role (Branch Manager Dashboard, Finance Dashboard, Marketing Dashboard)</li>
+                <li>Establish data quality standards and automated validation checks</li>
+                <li>Automate data pulls from source systems (remove manual entry where possible)</li>
+                <li>Provide clear documentation so users understood which data came from which source</li>
+            </ul>
+        </div>
+
+        <!-- SOLUTION DESIGN -->
+        <div class="content-section">
+            <h2>Solution Design & Implementation</h2>
+            
+            <h3>Architecture Redesign</h3>
+            <p><strong>Before:</strong> Single massive 85MB file with 50+ interconnected sheets pulling data manually.</p>
+            <p><strong>After:</strong> Multi-tiered architecture:</p>
+            <ul>
+                <li><strong>Data Layer:</strong> 3 source files pulling live data from branch systems (sales, inventory, finance) — automated overnight refresh</li>
+                <li><strong>Processing Layer:</strong> Consolidated data sheet performing calculations and validation checks</li>
+                <li><strong>Presentation Layer:</strong> 3 separate role-based dashboards (Branch Manager, Finance, Marketing) — each under 10MB</li>
+            </ul>
+
+            <h3>Performance Optimization</h3>
+            <ul>
+                <li><strong>Removed unnecessary data:</strong> Eliminated historical data older than 2 years (users rarely accessed it)</li>
+                <li><strong>Optimized formulas:</strong> Replaced inefficient VLOOKUP chains with INDEX/MATCH; moved heavy calculations to data layer</li>
+                <li><strong>Automated overnight refresh:</strong> Data updates happen at 2 AM when system load is low; users open fast, pre-calculated file at 8 AM</li>
+                <li><strong>Reduced pivot tables:</strong> Pre-calculated summaries instead of live pivot tables (faster rendering)</li>
+            </ul>
+
+            <h3>Data Quality Standards</h3>
+            <ul>
+                <li>Defined standard data entry formats across branches</li>
+                <li>Built validation checks: alerts when data falls outside expected ranges</li>
+                <li>Created data dictionary explaining every metric's source and calculation method</li>
+                <li>Designated data steward per branch responsible for quality</li>
+            </ul>
+
+            <h3>User Experience</h3>
+            <ul>
+                <li>Created simplified dashboards: 5-7 key metrics per role (not 50+ sheets)</li>
+                <li>Added filter controls: branch, date range, product category</li>
+                <li>Included data confidence indicators: "Last updated at 8:15 AM today"</li>
+                <li>Provided help documentation and quick-reference guides</li>
+            </ul>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="content-section">
+            <h2>Results & Business Impact</h2>
+            
+            <div class="impact-box">
+                <h3>Quantified Outcomes</h3>
+                <ul>
+                    <li><strong>Performance:</strong> 45 seconds → 5 seconds (90% improvement)</li>
+                    <li><strong>File Size:</strong> 85MB → 12MB (86% reduction)</li>
+                    <li><strong>User Adoption:</strong> 42% → 87% monthly active users (2x increase)</li>
+                    <li><strong>Data Quality:</strong> Validation rules caught ~15-20 data errors per month that would have propagated</li>
+                    <li><strong>Stakeholder Satisfaction:</strong> 10/10 stakeholders reported the redesigned dashboard as "significantly improved"</li>
+                </ul>
+            </div>
+
+            <h3>Strategic Impact</h3>
+            <p><strong>Adoption:</strong> From 42% to 87% monthly active users — a 105% increase. Users now proactively consult the dashboard instead of viewing it as a burden.</p>
+
+            <p><strong>Decision Velocity:</strong> Branch managers can now make faster decisions. Instead of waiting 45 seconds (or pulling data manually), they open the dashboard in 5 seconds and have the information they need.</p>
+
+            <p><strong>Data Trust:</strong> The data quality standards and validation checks increased user confidence. Users now trust the dashboard enough to make decisions based on it without manual verification.</p>
+
+            <p><strong>Reduced Reporting Burden:</strong> Finance team previously spent 2-3 hours weekly reconciling manual reports. Automated data pulls reduced that to 30 minutes, freeing time for analysis.</p>
+        </div>
+
+        <!-- SKILLS DEMONSTRATED -->
+        <div class="content-section">
+            <h2>Business Analysis Skills Demonstrated</h2>
+            <div class="skills-container">
+                <span class="skill-badge">Requirements Gathering</span>
+                <span class="skill-badge">Stakeholder Management</span>
+                <span class="skill-badge">Dashboard Design</span>
+                <span class="skill-badge">System Optimization</span>
+                <span class="skill-badge">Data Quality Management</span>
+                <span class="skill-badge">Process Documentation</span>
+                <span class="skill-badge">Iterative Refinement</span>
+                <span class="skill-badge">User Adoption Strategy</span>
+            </div>
+        </div>
+
+        <!-- LEARNINGS -->
+        <div class="content-section">
+            <h2>Key Learnings</h2>
+            
+            <h3>1. Stakeholder Interviews Are Non-Negotiable</h3>
+            <p>I could have guessed that "performance" was the main issue. But interviews revealed a more nuanced problem: users didn't trust the data quality, so even a fast dashboard wouldn't help if data was unreliable. Interview investment paid off.</p>
+
+            <h3>2. Separate Presentations for Different Users</h3>
+            <p>A single dashboard tried to serve everyone. That's impossible. By creating role-based dashboards, each user saw only what mattered to them. Adoption skyrocketed because users found their dashboard useful, not bloated.</p>
+
+            <h3>3. Performance Matters More Than Feature Count</h3>
+            <p>The redesigned dashboard had fewer features than the original (removed some nice-to-have reports). But it was 10x faster. Users chose speed over feature completeness. Speed = adoption.</p>
+
+            <h3>4. Data Quality Standards Are Foundation</h3>
+            <p>A fast dashboard with bad data is useless. The automation + validation checks were as important as the performance optimization. Trust in the system is what drives adoption.</p>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="content-section">
+            <h2>Conclusion</h2>
+            <p>This case study demonstrates how systematic business analysis—deep stakeholder understanding, clear requirement definition, thoughtful system design, and iterative refinement—transforms technology from a burden into an asset.</p>
+
+            <p>The redesigned dashboard wasn't magic. It was the result of understanding what users actually needed, designing a system to meet those needs, and optimizing relentlessly for speed and trust.</p>
+
+            <p><strong>Business Analyst Takeaway:</strong> When a system has low adoption, the answer usually isn't "more features." It's usually "understand the user's real pain point and eliminate it." In this case, that pain point was speed and data reliability. Once solved, adoption followed naturally.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Regine Esponilla. All rights reserved.</p>
+        <p>Business Analyst | Operations Professional | Data Analytics</p>
+    </footer>
+</body>
+</html>
