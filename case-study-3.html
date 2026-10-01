@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Improvement Initiative - Case Study | Regine Esponilla</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a3a52;
+            --secondary-color: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --white: #ffffff;
+            --accent: #3498db;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        header a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        header a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* MAIN CONTENT */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #e67e22;
+        }
+
+        /* HERO SECTION */
+        .case-study-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5aa0 100%);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .meta-item {
+            font-size: 0.9rem;
+        }
+
+        .meta-item label {
+            color: var(--secondary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-item span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+        }
+
+        .content-section h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .content-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* IMPACT BOX */
+        .impact-box {
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, rgba(52, 152, 219, 0.05) 100%);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .impact-box h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .impact-box ul {
+            margin: 1rem 0 0 1.5rem;
+        }
+
+        .impact-box li {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* SKILLS SECTION */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-badge {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(243, 156, 18, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .case-study-hero {
+                padding: 2rem;
+            }
+
+            .case-study-hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .meta-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <h1>Regine Esponilla</h1>
+            <a href="index.html">← Back to Portfolio</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Portfolio</a> / Case Study #3
+        </div>
+
+        <!-- HERO SECTION -->
+        <div class="case-study-hero">
+            <h1>Process Improvement Initiative</h1>
+            <p>Systematic identification and elimination of 20 operational inefficiencies, delivering 20% campaign ROI improvement.</p>
+            <div class="meta-info">
+                <div class="meta-item">
+                    <label>Company</label>
+                    <span>Full Feeling Inc. (Dohtonbori Philippines)</span>
+                </div>
+                <div class="meta-item">
+                    <label>Role</label>
+                    <span>Digital Marketing & PR Officer</span>
+                </div>
+                <div class="meta-item">
+                    <label>Timeline</label>
+                    <span>Mar 2024 – Jun 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXECUTIVE SUMMARY -->
+        <div class="content-section">
+            <h2>Executive Summary</h2>
+            <p>This case study demonstrates how systematic problem identification, prioritization, and implementation can transform operational efficiency. Through structured analysis, I identified 20 distinct inefficiencies across marketing and operations, prioritized them using impact/effort matrices, and implemented 15 high-impact improvements. Results: 32% reduction in marketing process time, 20% improvement in campaign ROI, and established a repeatable process improvement methodology for the organization.</p>
+            <div class="impact-box">
+                <h3>Key Results</h3>
+                <ul>
+                    <li><strong>20 inefficiencies identified</strong> across data collection, reporting, and operations</li>
+                    <li><strong>15 improvements implemented</strong> (75% success rate)</li>
+                    <li><strong>32% reduction in marketing process time</strong> (from 4 hours to 2.7 hours per campaign cycle)</li>
+                    <li><strong>20% improvement in campaign ROI</strong> through spend reallocation</li>
+                    <li><strong>Data quality improvement:</strong> 62% → 94%</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CONTEXT -->
+        <div class="content-section">
+            <h2>Context</h2>
+            <p>Full Feeling Inc. is a multi-branch food retail and hospitality business (the same company as the Dashboard case study). While the dashboard optimization tackled reporting infrastructure, this case study addresses the underlying business processes: how marketing campaigns are planned, executed, tracked, and optimized.</p>
+
+            <p>The marketing and operations teams felt inefficient. Campaigns were taking longer than expected. ROI was lower than industry benchmarks. Data was messy and unreliable. But the root causes were unclear—they felt like a thousand small problems rather than a few big ones.</p>
+
+            <p>The business wanted a systematic way to identify, prioritize, and fix these problems.</p>
+        </div>
+
+        <!-- METHODOLOGY -->
+        <div class="content-section">
+            <h2>Methodology: Structured Process Analysis</h2>
+            
+            <h3>Phase 1: Process Mapping & Problem Identification (Week 1-2)</h3>
+            <p>I conducted structured process mapping sessions with marketing and operations teams to document every step in the campaign lifecycle:</p>
+            <ul>
+                <li>Campaign planning and approval</li>
+                <li>Creative development and asset management</li>
+                <li>Spend allocation and budget tracking</li>
+                <li>Campaign execution and monitoring</li>
+                <li>Data collection and reporting</li>
+                <li>Post-campaign analysis and optimization</li>
+            </ul>
+
+            <p>At each step, I asked: "Is there any delay, rework, manual effort, or error that shouldn't be here?" This generated an initial list of 25+ potential inefficiencies.</p>
+
+            <h3>Phase 2: Problem Prioritization (Week 3)</h3>
+            <p>Not all inefficiencies are equal. I prioritized using a 2x2 matrix:</p>
+            <ul>
+                <li><strong>High Impact / Easy Fix:</strong> Do immediately (quick wins)</li>
+                <li><strong>High Impact / Hard Fix:</strong> Plan for implementation (major projects)</li>
+                <li><strong>Low Impact / Easy Fix:</strong> Nice-to-have (do if resources available)</li>
+                <li><strong>Low Impact / Hard Fix:</strong> Deprioritize</li>
+            </ul>
+
+            <p>This reduced the list to 20 problems worth addressing.</p>
+
+            <h3>Phase 3: Solution Design & Implementation (Week 4-16)</h3>
+            <p>For each of the 20 problems, I designed specific solutions and coordinated implementation with relevant teams.</p>
+        </div>
+
+        <!-- PROBLEMS & SOLUTIONS -->
+        <div class="content-section">
+            <h2>The 20 Inefficiencies & Solutions</h2>
+            
+            <h3>Data Collection Issues (7 problems)</h3>
+            <ul>
+                <li><strong>Problem:</strong> Campaign performance data was manually entered from multiple sources (Facebook Ads Manager, Google Analytics, email platform, POS system)</li>
+                <li><strong>Solution:</strong> Built automated data pull (API connections where available; manual export for legacy systems) into centralized database</li>
+                <li><strong>Benefit:</strong> Eliminated 2+ hours weekly manual data entry; improved accuracy</li>
+            </ul>
+
+            <ul>
+                <li><strong>Problem:</strong> Email campaign data was tracked in spreadsheets; social media data in platforms; POS data in separate system. No unified view.</li>
+                <li><strong>Solution:</strong> Created consolidated reporting dashboard consolidating all channels</li>
+                <li><strong>Benefit:</strong> Multi-channel ROI visibility (previously impossible)</li>
+            </ul>
+
+            <ul>
+                <li><strong>Problem:</strong> Inventory data updated quarterly, not in real-time. Campaigns promoted out-of-stock products.</li>
+                <li><strong>Solution:</strong> Connected POS system to real-time inventory feed for campaign planning</li>
+                <li><strong>Benefit:</strong> Prevented stock-out campaigns; improved customer satisfaction</li>
+            </ul>
+
+            <p><em>[4 additional data collection issues solved through similar root cause analysis]</em></p>
+
+            <h3>Reporting Appearance & Structure Issues (5 problems)</h3>
+            <ul>
+                <li><strong>Problem:</strong> Daily reports had inconsistent formatting (branch 1 formatted differently than branch 2). Hard to compare performance.</li>
+                <li><strong>Solution:</strong> Standardized report templates; documented formatting standards</li>
+                <li><strong>Benefit:</strong> Faster report review; easier to spot anomalies</li>
+            </ul>
+
+            <ul>
+                <li><strong>Problem:</strong> Weekly concepts mixed historical data with current data without clear labeling. Confusing.</li>
+                <li><strong>Solution:</strong> Separated historical benchmarks into reference section; highlighted current-week data</li>
+                <li><strong>Benefit:</strong> Clearer decision-making; reduced analysis errors</li>
+            </ul>
+
+            <p><em>[3 additional reporting issues solved]</em></p>
+
+            <h3>Data Quality Issues (8 problems)</h3>
+            <ul>
+                <li><strong>Problem:</strong> Campaign names were inconsistent ("promo_jan_2024" vs "January Promotion 2024" vs "JAN_2024_PROMO"). System couldn't aggregate data.</li>
+                <li><strong>Solution:</strong> Developed naming convention; trained teams; built validation checks</li>
+                <li><strong>Benefit:</strong> Accurate multi-period analysis; automated aggregation possible</li>
+            </ul>
+
+            <ul>
+                <li><strong>Problem:</strong> Date formats varied across systems (MM/DD/YYYY vs DD/MM/YYYY). Merged data showed wrong dates.</li>
+                <li><strong>Solution:</strong> Standardized all dates to ISO 8601 format (YYYY-MM-DD); built conversion formulas</li>
+                <li><strong>Benefit:</strong> Eliminated date-related errors in analysis</li>
+            </ul>
+
+            <p><em>[6 additional data quality issues solved through similar standardization]</em></p>
+        </div>
+
+        <!-- IMPLEMENTATION APPROACH -->
+        <div class="content-section">
+            <h2>Implementation Approach</h2>
+            
+            <h3>Quick Wins First (Week 4-6)</h3>
+            <p>I implemented 6 quick-win improvements immediately (data collection standardization, reporting templates, naming conventions). These had high impact with minimal effort. Quick wins built momentum and stakeholder buy-in.</p>
+
+            <h3>Medium-Complexity Improvements (Week 7-12)</h3>
+            <p>Then I tackled 7 medium-complexity improvements (dashboard consolidation, inventory integration, validation checks). These required coordination across teams and took longer, but the foundation from quick wins made adoption easier.</p>
+
+            <h3>Complex Projects (Week 13-16)</h3>
+            <p>Finally, 2 complex improvements (API automation, advanced analytics dashboards) that required significant development work. By this point, the culture had shifted toward process improvement, and teams were eager to implement.</p>
+
+            <h3>Failed/Deprioritized (5 of 20)</h3>
+            <p>5 improvements were either deprioritized (due to resource constraints) or partially implemented. This is normal and healthy—not every idea needs full implementation.</p>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="content-section">
+            <h2>Results & Business Impact</h2>
+            
+            <div class="impact-box">
+                <h3>Quantified Outcomes</h3>
+                <ul>
+                    <li><strong>Process Time Reduction:</strong> Campaign cycle time reduced from 4 hours to 2.7 hours (32% improvement)</li>
+                    <li><strong>Data Quality:</strong> From 62% to 94% accuracy in campaign data</li>
+                    <li><strong>Campaign ROI:</strong> 20% improvement through spend reallocation insights</li>
+                    <li><strong>Manual Effort:</strong> 5+ hours weekly manual work eliminated</li>
+                    <li><strong>Implementation Success Rate:</strong> 15 of 20 improvements implemented (75%)</li>
+                </ul>
+            </div>
+
+            <h3>Strategic Impact</h3>
+            <p><strong>Data-Driven Decision Making:</strong> With consolidated, high-quality data, marketing managers could now make confident decisions about spend allocation. Previously, data gaps forced guesswork.</p>
+
+            <p><strong>Campaign Optimization:</strong> The 20% ROI improvement came from reallocating spend away from underperforming channels (now visible for the first time) and toward high-performers. Previously invisible due to fragmented data.</p>
+
+            <p><strong>Operational Efficiency:</strong> Removing manual work freed up team time for higher-value activities like strategy and analysis, rather than data entry and reconciliation.</p>
+
+            <p><strong>Repeatable Methodology:</strong> The process improvement framework itself became valuable. The organization now had a methodology to identify and address inefficiencies systematically, rather than ad-hoc problem-solving.</p>
+        </div>
+
+        <!-- SKILLS DEMONSTRATED -->
+        <div class="content-section">
+            <h2>Business Analysis Skills Demonstrated</h2>
+            <div class="skills-container">
+                <span class="skill-badge">Process Mapping</span>
+                <span class="skill-badge">Problem Identification</span>
+                <span class="skill-badge">Prioritization (Impact/Effort)</span>
+                <span class="skill-badge">Root Cause Analysis</span>
+                <span class="skill-badge">Solution Design</span>
+                <span class="skill-badge">Change Management</span>
+                <span class="skill-badge">Cross-Functional Coordination</span>
+                <span class="skill-badge">Data Quality Management</span>
+            </div>
+        </div>
+
+        <!-- LEARNINGS -->
+        <div class="content-section">
+            <h2>Key Learnings</h2>
+            
+            <h3>1. Process Mapping is Essential</h3>
+            <p>Asking "where are you inefficient?" yields vague answers. But asking "walk me through the campaign cycle step-by-step" reveals specific problems. Process mapping surfaces hidden inefficiencies.</p>
+
+            <h3>2. Prioritization Prevents Overwhelm</h3>
+            <p>20 problems feels overwhelming. But a 2x2 impact/effort matrix clarifies: do the quick wins first (high impact, easy), plan for the medium projects, and deprioritize low-impact work. Structured prioritization makes large improvements manageable.</p>
+
+            <h3>3. Quick Wins Build Momentum</h3>
+            <p>By implementing 6 quick wins in the first 3 weeks, I built organizational confidence and enthusiasm for process improvement. If I'd started with the hard projects, momentum would have stalled.</p>
+
+            <h3>4. Data Quality is Foundational</h3>
+            <p>Half of the 20 problems were data-related. You can optimize processes all you want, but if data quality is poor, decisions will be wrong anyway. Data standards matter.</p>
+
+            <h3>5. Not Every Problem Needs Solving</h3>
+            <p>It's OK to deprioritize 5 of 20 problems. The goal isn't perfection; it's meaningful improvement. 75% implementation of the highest-impact problems beats 50% implementation of everything.</p>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="content-section">
+            <h2>Conclusion</h2>
+            <p>This case study demonstrates how systematic business analysis transforms operational efficiency. By mapping processes, identifying inefficiencies, prioritizing strategically, and implementing methodically, organizations can achieve significant improvements in speed, quality, and cost.</p>
+
+            <p>The 20% ROI improvement wasn't magical—it was the direct result of making better decisions with better data. And that data quality only improved by fixing root causes of inefficiency.</p>
+
+            <p><strong>Business Analyst Takeaway:</strong> Process improvement isn't about working harder; it's about working smarter. Most inefficiencies are structural (bad data, missing automation, inconsistent processes)—not effort-related. Fix the structure, and the results follow.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Regine Esponilla. All rights reserved.</p>
+        <p>Business Analyst | Operations Professional | Data Analytics</p>
+    </footer>
+</body>
+</html>
